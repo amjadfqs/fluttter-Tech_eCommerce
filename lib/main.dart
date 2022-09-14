@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lab_2/Screen/CategoriesPage.dart';
+import 'package:lab_2/Screen/DetailPage.dart';
 
 import 'Screen/CategoriesCurrent.dart';
 import 'Screen/Home.dart';
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: CategoriesPage(),
+      home: DetailPage(),
     );
   }
 }
