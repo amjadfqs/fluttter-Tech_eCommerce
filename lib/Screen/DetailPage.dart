@@ -128,8 +128,8 @@ class _DetailPageState extends State<DetailPage> {
       child: Stack(
         children: [
           Positioned(
-            top: 12.5,
-            left: 12.5,
+            top: 14.5,
+            left: 13.5,
             child: Icon(
               Icons.check,
               size: 20,

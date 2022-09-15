@@ -59,7 +59,7 @@ class CategoriesCurrunt extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.symmetric(
           horizontal: 12,
-          vertical: 16,
+          vertical: 10,
         ),
         decoration: BoxDecoration(
           color: Colors.white,

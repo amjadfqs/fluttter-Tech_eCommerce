@@ -40,7 +40,7 @@ class Home extends StatelessWidget {
                       MiddleAppBar("Categories", Icons.list_sharp),
                       MiddleAppBar("Favorite", Icons.star_border_outlined),
                       MiddleAppBar("Gifts", Icons.card_giftcard_outlined),
-                      MiddleAppBar("Best selling", Icons.auto_graph_outlined),
+                      MiddleAppBar("Best selling", Icons.trending_up_outlined),
                     ],
                   ),
                   SizedBox(
