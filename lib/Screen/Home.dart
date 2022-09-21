@@ -1,18 +1,15 @@
 import 'package:flutter/material.dart';
 
+import './DetailPage.dart';
 import '../Components/AdsView.dart';
 import '../Constant/AppTitle.dart';
 import '../Constant/SizeConfig.dart';
 import '../Constant/bottomBar.dart';
+import '../Constant/products.dart';
+import 'CategoriesPage.dart';
 
 class Home extends StatelessWidget {
   Home({super.key});
-
-  final List<Map> products = [
-    {"name": "Acer", "price": 999, "image": "assets/png/laptop.png"},
-    {"name": "Hp", "price": 550, "image": "assets/png/laptop2.png"},
-    {"name": "Asus", "price": 880, "image": "assets/png/laptop3.png"},
-  ];
 
   @override
   Widget build(BuildContext context) {
@@ -37,10 +34,18 @@ class Home extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      MiddleAppBar("Categories", Icons.list_sharp),
-                      MiddleAppBar("Favorite", Icons.star_border_outlined),
-                      MiddleAppBar("Gifts", Icons.card_giftcard_outlined),
-                      MiddleAppBar("Best selling", Icons.trending_up_outlined),
+                      MiddleAppBar("Categories", Icons.list_sharp, () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => CategoriesPage()));
+                      }),
+                      MiddleAppBar(
+                          "Favorite", Icons.star_border_outlined, () {}),
+                      MiddleAppBar(
+                          "Gifts", Icons.card_giftcard_outlined, () {}),
+                      MiddleAppBar(
+                          "Best selling", Icons.trending_up_outlined, () {}),
                     ],
                   ),
                   SizedBox(
@@ -81,7 +86,18 @@ class Home extends StatelessWidget {
   GestureDetector ScrollProduct(
       String name, String image, int price, BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => DetailPage(
+              name: name,
+              image: image,
+              price: price,
+            ),
+          ),
+        );
+      },
       child: Banner(
         message: "\$ " + price.toString(),
         location: BannerLocation.topEnd,
@@ -110,11 +126,11 @@ class Home extends StatelessWidget {
     );
   }
 
-  Widget MiddleAppBar(String title, IconData icon) {
+  Widget MiddleAppBar(String title, IconData icon, Function() onTap) {
     return Column(
       children: [
         GestureDetector(
-          onTap: () {},
+          onTap: onTap,
           child: CircleAvatar(
             radius: 30,
             backgroundColor: Colors.blue[200],

@@ -5,7 +5,12 @@ import 'package:lab_2/Constant/bottomBar.dart';
 import '../Constant/AppTitle.dart';
 
 class DetailPage extends StatefulWidget {
-  const DetailPage({super.key});
+  final String name;
+  final String image;
+  final int price;
+
+  const DetailPage(
+      {required this.name, required this.image, required this.price});
 
   @override
   State<DetailPage> createState() => _DetailPageState();
@@ -36,7 +41,7 @@ class _DetailPageState extends State<DetailPage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  AppTitle("Product Name", context),
+                  AppTitle(widget.name, context),
                   ColorFiltered(
                     colorFilter: ColorFilter.mode(
                       currentColor,
@@ -45,7 +50,7 @@ class _DetailPageState extends State<DetailPage> {
                     child: Container(
                       height: getHeightScreen(300),
                       width: SizeOfConfig.widthScreen,
-                      child: Image.asset("assets/png/product.png"),
+                      child: Image.asset(widget.image),
                     ),
                   ),
                   SizedBox(
@@ -83,7 +88,7 @@ class _DetailPageState extends State<DetailPage> {
                         ),
                       ),
                       Text(
-                        '\$ 999',
+                        widget.price.toString(),
                         style: TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,

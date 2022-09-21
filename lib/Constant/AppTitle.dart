@@ -11,7 +11,9 @@ Widget AppTitle(String title, BuildContext context) {
       SizedBox(height: getHeightScreen(15)),
       GestureDetector(
         child: const Icon(Icons.arrow_back_ios_new),
-        onTap: () {},
+        onTap: () {
+          Navigator.pop(context);
+        },
       ),
       SizedBox(height: getHeightScreen(25)),
       Text(
