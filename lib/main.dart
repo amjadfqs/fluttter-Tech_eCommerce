@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:lab_2/Screen/CategoriesPage.dart';
 import 'package:lab_2/Screen/DetailPage.dart';
+import 'package:lab_2/Screen/searchPage.dart';
 
 import 'Screen/CategoriesCurrent.dart';
 import 'Screen/Home.dart';
