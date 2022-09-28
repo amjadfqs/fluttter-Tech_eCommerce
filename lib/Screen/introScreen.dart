@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 import 'package:lottie/lottie.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:shop_app/Screen/Home.dart';
-import 'package:shop_app/Screen/SplashScrean.dart';
+import 'Home.dart';
+import './SplashScrean.dart';
 
 class IntroScreen extends StatelessWidget {
   IntroScreen({Key? key}) : super(key: key);

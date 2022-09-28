@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:lab_2/Screen/CategoriesPage.dart';
 import 'package:lab_2/Screen/DetailPage.dart';
+import 'package:lab_2/Screen/introScreen.dart';
 import 'package:lab_2/Screen/searchPage.dart';
 
 import 'Screen/CategoriesCurrent.dart';
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Home(),
+      home: IntroScreen(),
     );
   }
 }
