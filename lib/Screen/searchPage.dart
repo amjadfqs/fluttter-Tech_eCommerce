@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:lab_2/Components/MiddleAppBar.dart';
 import 'package:lab_2/Components/search_item.dart';
@@ -6,6 +8,7 @@ import 'package:lab_2/Constant/AppTitle.dart';
 import 'package:lab_2/Constant/SizeConfig.dart';
 import 'package:lab_2/Constant/bottomBar.dart';
 import 'package:lab_2/Screen/CategoriesPage.dart';
+import 'package:lab_2/Screen/Home.dart';
 
 class SearchPage extends StatefulWidget {
   SearchPage({Key? key}) : super(key: key);
@@ -114,7 +117,12 @@ class _SearchPageState extends State<SearchPage> {
           ],
         ),
       ),
-      bottomNavigationBar: BottomBar(),
+      bottomNavigationBar: BottomBar(
+          BottomNu: 1,
+          callBack: (index) {
+            Navigator.push(
+                context, MaterialPageRoute(builder: (context) => Home()));
+          }),
     );
     ;
   }

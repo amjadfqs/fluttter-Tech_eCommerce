@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:lab_2/Components/MiddleAppBar.dart';
+import 'package:lab_2/Screen/searchPage.dart';
 
 import './DetailPage.dart';
 import '../Components/AdsView.dart';
@@ -82,7 +83,12 @@ class Home extends StatelessWidget {
           ],
         ),
       ),
-      bottomNavigationBar: BottomBar(),
+      bottomNavigationBar: BottomBar(
+          BottomNu: 0,
+          callBack: (index) {
+            Navigator.push(
+                context, MaterialPageRoute(builder: (context) => SearchPage()));
+          }),
     );
   }
 
