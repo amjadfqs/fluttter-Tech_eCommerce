@@ -15,6 +15,8 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
+  final emailControll = TextEditingController();
+  final passwordControll = TextEditingController();
   final _formKey = GlobalKey<FormState>();
   String? _emaic;
   final _password = TextEditingController();
@@ -80,6 +82,7 @@ class _LoginState extends State<Login> {
                     mykeyboardType: TextInputType.emailAddress,
                     obsecureText: false,
                     icon: Icons.email,
+                    controller: emailControll,
                     validation: (value) {
                       if (value!.isEmpty) {
                         addError(error: kEmailNullError);
@@ -107,6 +110,7 @@ class _LoginState extends State<Login> {
                     mykeyboardType: TextInputType.visiblePassword,
                     obsecureText: true,
                     icon: Icons.lock,
+                    controller: passwordControll,
                     validation: (value) {
                       if (value!.isEmpty) {
                         addError(error: kPassNullError);
