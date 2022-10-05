@@ -8,7 +8,7 @@ local Url = 'http://10.42.0.1:8000/api/'
 
 storage Url = 'http://10.42.0.1:8000/storage/'
 
-It's only for test preposes
+It's only for test proposes
 
 and I hope you to have a good day ...
 
