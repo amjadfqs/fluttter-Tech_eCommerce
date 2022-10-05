@@ -4,9 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:lab_2/Constant/SizeConfig.dart';
 import 'package:lab_2/Constant/style.dart';
+import 'package:lab_2/api/resource_api.dart';
 
 Widget search_item(BuildContext context,
-    {String title = '', String subtitle = ''}) {
+    {String title = 'title',
+    String subtitle = 'subtitle',
+    String img = 'assets/png/laptop.png'}) {
   return Column(
     children: [
       Container(
@@ -19,11 +22,17 @@ Widget search_item(BuildContext context,
             horizontal: getWidthScreen(10), vertical: getHeightScreen(15)),
         child: Row(
           children: [
-            Image.asset(
-              'assets/png/laptop.png',
-              width: getWidthScreen(40),
-              fit: BoxFit.cover,
-            ),
+            img == 'NoImg'
+                ? Image.asset(
+                    'assets/png/laptop.png',
+                    width: getWidthScreen(40),
+                    fit: BoxFit.cover,
+                  )
+                : Image.network(
+                    ResourceApi().getStorageUrl() + img,
+                    width: getWidthScreen(100),
+                    fit: BoxFit.cover,
+                  ),
             SizedBox(width: getWidthScreen(10)),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,

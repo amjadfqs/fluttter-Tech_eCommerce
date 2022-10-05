@@ -1,16 +1,15 @@
-# lab_2
+# Test Laravel Api
 
-A new Flutter project.
+Mr.amjed, in this brunch, I connected the amazing laravel framework with flutter app 
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
+first it need the php to start on real ip interface , not on loopback [localhost,127.0.0.1] (DevOps Move)
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
+It's only for test preposes 
+
+and I hope you to have a good day ...
+
+Dear Ala
