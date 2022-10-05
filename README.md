@@ -1,4 +1,4 @@
-<!--! Kids Tutorial  -->
+<!--! next.js for Kids   -->
 
 # Test Laravel Api
 
