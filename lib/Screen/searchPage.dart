@@ -54,6 +54,8 @@ class _SearchPageState extends State<SearchPage> {
 
   // build
 
+  var buttonBaN = 1;
+
   @override
   void initState() {
     _foundPodcasts = _allPodcasts;
@@ -118,10 +120,18 @@ class _SearchPageState extends State<SearchPage> {
         ),
       ),
       bottomNavigationBar: BottomBar(
-          BottomNu: 1,
-          callBack: (index) {
-            Navigator.push(
-                context, MaterialPageRoute(builder: (context) => Home()));
+          BottomNu: buttonBaN,
+          callBack: (int index) {
+            buttonBaN = index;
+            setState(() {
+              if (buttonBaN == 0) {
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (context) => Home()));
+              } else if (buttonBaN == 1) {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => SearchPage()));
+              }
+            });
           }),
     );
     ;

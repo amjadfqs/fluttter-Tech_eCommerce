@@ -12,9 +12,15 @@ import '../Constant/bottomBar.dart';
 import '../Constant/products.dart';
 import 'CategoriesPage.dart';
 
-class Home extends StatelessWidget {
+class Home extends StatefulWidget {
   Home({super.key});
 
+  @override
+  State<Home> createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+  var buttonBaN = 0;
   @override
   Widget build(BuildContext context) {
     SizeOfConfig().init(context);
@@ -84,10 +90,18 @@ class Home extends StatelessWidget {
         ),
       ),
       bottomNavigationBar: BottomBar(
-          BottomNu: 0,
-          callBack: (index) {
-            Navigator.push(
-                context, MaterialPageRoute(builder: (context) => SearchPage()));
+          BottomNu: buttonBaN,
+          callBack: (int index) {
+            buttonBaN = index;
+            setState(() {
+              if (buttonBaN == 0) {
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (context) => Home()));
+              } else if (buttonBaN == 1) {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => SearchPage()));
+              }
+            });
           }),
     );
   }
