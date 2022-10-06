@@ -11,7 +11,7 @@ import 'Screen/CategoriesCurrent.dart';
 import 'Screen/Home.dart';
 import 'Screen/Login.dart';
 
-Future main() async {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   runApp(MyApp());
