@@ -23,6 +23,16 @@ class _LoginState extends State<Login> {
   final _password = TextEditingController();
   final List<String?> errors = [];
 
+  void dispose() {
+    emailControll.dispose();
+    passwordControll.dispose();
+
+    super.dispose();
+  }
+
+  String? email;
+  String? password;
+
   void addError({String? error}) {
     if (!errors.contains(error)) {
       setState(() {
@@ -172,19 +182,46 @@ class _LoginState extends State<Login> {
   }
 
   Future signIn() async {
+    final validate = _formKey.currentState!.validate();
+    if (!validate) {
+      showDialog(
+        context: context,
+        builder: (context) => const Center(
+          child: CircularProgressIndicator(),
+        ),
+      );
+    }
     try {
       await FirebaseAuth.instance.signInWithEmailAndPassword(
-        email: emailControll.text.trim(),
-        password: passwordControll.text.trim(),
+        email: emailControll.text,
+        password: passwordControll.text,
       );
+      // Navigator.push(
+      //   context,
+      //   MaterialPageRoute(
+      //     builder: (context) => Home(),
+      //   ),
+      // );
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
         print('No user found for that email.');
-        addError(error: "No user found for that email.");
       } else if (e.code == 'wrong-password') {
         print('Wrong password provided for that user.');
-        addError(error: "Wrong password provided for that user.");
       }
     }
+    // try {
+    //   await FirebaseAuth.instance.signInWithEmailAndPassword(
+    //     email: emailControll.text.trim(),
+    //     password: passwordControll.text.trim(),
+    //   );
+    // } on FirebaseAuthException catch (e) {
+    //   if (e.code == 'user-not-found') {
+    //     print('No user found for that email.');
+    //     addError(error: "No user found for that email.");
+    //   } else if (e.code == 'wrong-password') {
+    //     print('Wrong password provided for that user.');
+    //     addError(error: "Wrong password provided for that user.");
+    //   }
+    // }
   }
 }
