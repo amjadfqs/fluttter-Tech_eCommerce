@@ -17,7 +17,11 @@ class Profile extends StatelessWidget {
           onPressed: () {
             FirebaseAuth.instance.signOut();
             Navigator.push(
-                context, MaterialPageRoute(builder: (context) => Login()));
+              context,
+              MaterialPageRoute(
+                builder: (context) => Login(),
+              ),
+            );
           },
           icon: Icon(
             Icons.arrow_back,

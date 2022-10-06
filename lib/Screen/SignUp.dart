@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:lab_2/Constant/ButtonItem.dart';
-import 'package:lab_2/Screen/SignUp.dart';
+import 'package:lab_2/Screen/Login.dart';
 
 import '../Constant/Constant.dart';
 import '../Constant/FromError.dart';
@@ -9,14 +9,14 @@ import '../Constant/SizeConfig.dart';
 import '../Constant/DefaultButton.dart';
 import '../Constant/inputField.dart';
 
-class Login extends StatefulWidget {
-  const Login({super.key});
+class SignUp extends StatefulWidget {
+  const SignUp({super.key});
 
   @override
-  State<Login> createState() => _LoginState();
+  State<SignUp> createState() => _LoginState();
 }
 
-class _LoginState extends State<Login> {
+class _LoginState extends State<SignUp> {
   final emailControll = TextEditingController();
   final passwordControll = TextEditingController();
   final _formKey = GlobalKey<FormState>();
@@ -72,19 +72,19 @@ class _LoginState extends State<Login> {
                     height: getHeightScreen(50),
                   ),
                   Text(
-                    "Login",
+                    "SignUp",
                     style: headText,
                     textAlign: TextAlign.start,
                   ),
                   SizedBox(
                     height: getHeightScreen(40),
                   ),
-                  buttonItem('assets/svg/facebook.svg', "Login with Facebook",
+                  buttonItem('assets/svg/facebook.svg', "SignUp with Facebook",
                       40, () {}, context),
                   SizedBox(
                     height: getHeightScreen(30),
                   ),
-                  buttonItem('assets/svg/google.svg', "Login with Google", 40,
+                  buttonItem('assets/svg/google.svg', "SignUp with Google", 40,
                       () {}, context),
                   SizedBox(
                     height: getHeightScreen(40),
@@ -145,9 +145,9 @@ class _LoginState extends State<Login> {
                   SizedBox(
                     height: getHeightScreen(50),
                   ),
-                  DefaultButton("Login", () {
+                  DefaultButton("SignUp", () {
                     setState(() {
-                      signIn();
+                      signUp();
                     });
                   }),
                   SizedBox(
@@ -158,19 +158,19 @@ class _LoginState extends State<Login> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       const Text(
-                        "Don't have an account?",
+                        "Already have an account?",
                         style: hintText,
                       ),
                       TextButton(
                         child: const Text(
-                          'Sign Up',
+                          'Sign In',
                           style: secBtnText,
                         ),
                         onPressed: () {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => SignUp(),
+                              builder: (context) => Login(),
                             ),
                           );
                         },
@@ -186,7 +186,7 @@ class _LoginState extends State<Login> {
     );
   }
 
-  Future signIn() async {
+  Future signUp() async {
     final validate = _formKey.currentState!.validate();
     if (!validate) {
       showDialog(
@@ -197,7 +197,7 @@ class _LoginState extends State<Login> {
       );
     }
     try {
-      await FirebaseAuth.instance.signInWithEmailAndPassword(
+      await FirebaseAuth.instance.createUserWithEmailAndPassword(
         email: emailControll.text,
         password: passwordControll.text,
       );

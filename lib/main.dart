@@ -3,6 +3,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:lab_2/Screen/CategoriesPage.dart';
 import 'package:lab_2/Screen/DetailPage.dart';
+import 'package:lab_2/Screen/SignUp.dart';
 import 'package:lab_2/Screen/introScreen.dart';
 import 'package:lab_2/Screen/searchPage.dart';
 
@@ -29,7 +30,7 @@ class MyApp extends StatelessWidget {
           if (snapshot.hasData) {
             return IntroScreen();
           } else {
-            return Login();
+            return SignUp();
           }
         },
       ),
