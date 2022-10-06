@@ -205,8 +205,10 @@ class _LoginState extends State<Login> {
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
         print('No user found for that email.');
+        addError(error: "No user found for that email.");
       } else if (e.code == 'wrong-password') {
         print('Wrong password provided for that user.');
+        addError(error: "Wrong password provided for that user.");
       }
     }
     // try {
