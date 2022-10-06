@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:lab_2/Constant/ButtonItem.dart';
 
@@ -133,13 +134,7 @@ class _LoginState extends State<Login> {
                   SizedBox(
                     height: getHeightScreen(50),
                   ),
-                  DefaultButton("Login", () {
-                    if (_formKey.currentState!.validate()) {
-                      _formKey.currentState!.save();
-                      // if all are valid then go to success screen
-                      Navigator.pushNamed(context, "/home");
-                    }
-                  }),
+                  DefaultButton("Login", signIn),
                   SizedBox(
                     height: getHeightScreen(50),
                   ),
@@ -174,5 +169,22 @@ class _LoginState extends State<Login> {
         ),
       ),
     );
+  }
+
+  Future signIn() async {
+    try {
+      await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: emailControll.text.trim(),
+        password: passwordControll.text.trim(),
+      );
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'user-not-found') {
+        print('No user found for that email.');
+        addError(error: "No user found for that email.");
+      } else if (e.code == 'wrong-password') {
+        print('Wrong password provided for that user.');
+        addError(error: "Wrong password provided for that user.");
+      }
+    }
   }
 }

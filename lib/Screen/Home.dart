@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:lab_2/Components/MiddleAppBar.dart';
+import 'package:lab_2/Screen/ProfilePage.dart';
 import 'package:lab_2/Screen/searchPage.dart';
 
 import './DetailPage.dart';
@@ -100,6 +101,9 @@ class _HomeState extends State<Home> {
               } else if (buttonBaN == 1) {
                 Navigator.push(context,
                     MaterialPageRoute(builder: (context) => SearchPage()));
+              } else if (buttonBaN == 3) {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => Profile()));
               }
             });
           }),
