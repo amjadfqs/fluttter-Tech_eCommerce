@@ -6,6 +6,7 @@ import 'package:lab_2/Screen/Login.dart';
 
 import '../Constant/Constant.dart';
 import '../Constant/FromError.dart';
+import '../Constant/Messages.dart';
 import '../Constant/SizeConfig.dart';
 import '../Constant/DefaultButton.dart';
 import '../Constant/inputField.dart';
@@ -211,20 +212,8 @@ class _LoginState extends State<SignUp> {
         email: emailControll.text,
         password: passwordControll.text,
       );
-      // Navigator.push(
-      //   context,
-      //   MaterialPageRoute(
-      //     builder: (context) => Home(),
-      //   ),
-      // );
     } on FirebaseAuthException catch (e) {
-      if (e.code == 'user-not-found') {
-        print('No user found for that email.');
-        addError(error: "No user found for that email.");
-      } else if (e.code == 'wrong-password') {
-        print('Wrong password provided for that user.');
-        addError(error: "Wrong password provided for that user.");
-      }
+      Mesg.showSnakeBar(e.message);
     }
     // try {
     //   await FirebaseAuth.instance.signInWithEmailAndPassword(

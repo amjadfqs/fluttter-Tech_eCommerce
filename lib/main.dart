@@ -7,6 +7,7 @@ import 'package:lab_2/Screen/SignUp.dart';
 import 'package:lab_2/Screen/introScreen.dart';
 import 'package:lab_2/Screen/searchPage.dart';
 
+import 'Constant/Messages.dart';
 import 'Screen/CategoriesCurrent.dart';
 import 'Screen/Home.dart';
 import 'Screen/Login.dart';
@@ -23,6 +24,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      scaffoldMessengerKey: Mesg.mesagKey,
       debugShowCheckedModeBanner: false,
       home: StreamBuilder<User?>(
         stream: FirebaseAuth.instance.authStateChanges(),
@@ -30,7 +32,7 @@ class MyApp extends StatelessWidget {
           if (snapshot.hasData) {
             return IntroScreen();
           } else {
-            return SignUp();
+            return Home();
           }
         },
       ),

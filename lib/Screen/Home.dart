@@ -14,6 +14,8 @@ import '../Constant/products.dart';
 import 'CategoriesPage.dart';
 
 class Home extends StatefulWidget {
+  static String routerName = '/Home';
+
   Home({super.key});
 
   @override
@@ -46,10 +48,11 @@ class _HomeState extends State<Home> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       MiddleAppBar("Categories", Icons.list_sharp, () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => CategoriesPage()));
+                        // Navigator.push(
+                        //   context,
+                        // MaterialPageRoute(
+                        //   builder: (context) => CategoriesPage()));
+                        Navigator.pushNamed(context, CategoriesPage.routerName);
                       }),
                       MiddleAppBar(
                           "Favorite", Icons.star_border_outlined, () {}),

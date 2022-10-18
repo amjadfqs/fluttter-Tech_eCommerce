@@ -6,6 +6,7 @@ import '../Constant/AppTitle.dart';
 import '../Constant/SizeConfig.dart';
 
 class CategoriesPage extends StatelessWidget {
+  static String routerName = '/CategoryPage';
   CategoriesPage({super.key});
 
   final List<String> categories = [

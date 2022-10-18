@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:lab_2/Constant/Auth_Ser.dart';
 import 'package:lab_2/Constant/ButtonItem.dart';
 import 'package:lab_2/Screen/SignUp.dart';
 
@@ -79,13 +80,21 @@ class _LoginState extends State<Login> {
                   SizedBox(
                     height: getHeightScreen(40),
                   ),
-                  buttonItem('assets/svg/facebook.svg', "Login with Facebook",
-                      40, () {}, context),
+                  buttonItem(
+                      'assets/svg/facebook.svg', "Login with Facebook", 40, () {
+                    setState(() {
+                      AuthSev().FaceBookLogin();
+                    });
+                  }, context),
                   SizedBox(
                     height: getHeightScreen(30),
                   ),
                   buttonItem('assets/svg/google.svg', "Login with Google", 40,
-                      () {}, context),
+                      () {
+                    setState(() {
+                      AuthSev().FaceBookLogin();
+                    });
+                  }, context),
                   SizedBox(
                     height: getHeightScreen(40),
                   ),
